@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "BuildMate",
+    "slug": "buildmate",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "android": {
+      "package": "com.buildmate.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1E293B"
+      }
+    }
+  }
+}

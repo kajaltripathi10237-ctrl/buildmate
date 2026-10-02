@@ -1,0 +1,79 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  CONTRACTOR
+  WORKER
+  VENDOR
+  ADMIN
+}
+
+enum JobStatus {
+  OPEN
+  IN_PROGRESS
+  COMPLETED
+  ARCHIVED
+}
+
+model User {
+  id           String        @id @default(uuid())
+  name         String
+  email        String        @unique
+  phone        String
+  password     String
+  role         Role          @default(WORKER)
+  createdAt    DateTime      @default(now())
+  jobsPosted   Job[]         @relation("ContractorJobs")
+  applications Application[]
+  attendance   Attendance[]
+  listings     MarketplaceListing[]
+}
+
+model Job {
+  id           String        @id @default(uuid())
+  title        String
+  description  String
+  budget       Float
+  location     String
+  status       JobStatus     @default(OPEN)
+  postedById   String
+  postedBy     User          @relation("ContractorJobs", fields: [postedById], references: [id])
+  applications Application[]
+  createdAt    DateTime      @default(now())
+}
+
+model Application {
+  id        String   @id @default(uuid())
+  jobId     String
+  job       Job      @relation(fields: [jobId], references: [id])
+  workerId  String
+  worker    User     @relation(fields: [workerId], references: [id])
+  status    String   @default("PENDING")
+  createdAt DateTime @default(now())
+}
+
+model Attendance {
+  id        String   @id @default(uuid())
+  workerId  String
+  worker    User     @relation(fields: [workerId], references: [id])
+  date      DateTime @default(now())
+  status    String   @default("PRESENT")
+  location  String?
+}
+
+model MarketplaceListing {
+  id          String   @id @default(uuid())
+  title       String
+  category    String
+  type        String
+  price       Float
+  sellerId    String
+  seller      User     @relation(fields: [sellerId], references: [id])
+  createdAt   DateTime @default(now())
+}
