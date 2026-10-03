@@ -4,14 +4,17 @@
     "slug": "buildmate",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "android": {
-      "package": "com.buildmate.app",
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#1E293B"
+      "package": "com.kajalt.buildmate"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1e1eb1be-a351-416d-8c37-c42d24769f98"
       }
-    }
+    },
+    "plugins": [
+      "expo-asset"
+    ]
   }
 }
