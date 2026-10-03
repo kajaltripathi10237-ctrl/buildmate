@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f8fafc;
+  --foreground: #111827;
+  --primary: #064f8b;
+  --secondary: #0f7bbd;
+  --accent: #f59e0b;
+  --success: #10b981;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #f8fafc 0%, #ecf6ff 100%);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+* { box-sizing: border-box; }

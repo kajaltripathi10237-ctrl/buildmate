@@ -1,0 +1,18 @@
+{
+  "name": "buildmate-monorepo",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "mobile",
+    "admin",
+    "web"
+  ],
+  "scripts": {
+    "backend:dev": "npm --workspace backend run dev",
+    "backend:build": "npm --workspace backend run build",
+    "admin:dev": "npm --workspace admin run dev",
+    "admin:build": "npm --workspace admin run build",
+    "web:dev": "npm --workspace web run dev",
+    "web:build": "npm --workspace web run build"
+  }
+}

@@ -4,9 +4,19 @@
     "slug": "buildmate",
     "version": "1.0.0",
     "orientation": "portrait",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
+    "platforms": ["ios", "android"],
+    "scheme": "buildmate",
     "android": {
-      "package": "com.kajalt.buildmate"
+      "package": "com.kajalt.buildmate",
+      "adaptiveIcon": {
+        "backgroundColor": "#064F8B",
+        "foregroundImage": "./assets/adaptive-icon.png"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.kajalt.buildmate",
+      "supportsTablet": true
     },
     "extra": {
       "eas": {
@@ -15,6 +25,10 @@
     },
     "plugins": [
       "expo-asset"
-    ]
+    ],
+    "splash": {
+      "backgroundColor": "#064F8B",
+      "resizeMode": "contain"
+    }
   }
 }
