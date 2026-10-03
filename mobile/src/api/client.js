@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:10000';
+const API_BASE_URL = process.env.EXPO_PUBLIC_API_BASE_URL || 'https://buildmate-backend.onrender.com';
 
 export async function apiRequest(path, options = {}) {
   const config = {
