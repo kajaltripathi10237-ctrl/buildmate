@@ -3,7 +3,7 @@ services:
     name: buildmate-backend
     env: node
     plan: free
-    buildCommand: cd backend && npm install && npx prisma generate && npx prisma db push && npm run build && node prisma/seed.js
+    buildCommand: cd backend && npm install && npx prisma generate && npx prisma db push && npm run build && npm run db:seed
     startCommand: cd backend && npm run start
     envVars:
       - key: DATABASE_URL
