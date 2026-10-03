@@ -1,4 +1,4 @@
-package com.kajalt.buildmate
+package com.buildmate
 
 import android.app.Application
 import android.content.res.Configuration

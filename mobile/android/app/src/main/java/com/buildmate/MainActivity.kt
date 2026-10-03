@@ -1,4 +1,4 @@
-package com.kajalt.buildmate
+package com.buildmate
 
 import android.os.Build
 import android.os.Bundle

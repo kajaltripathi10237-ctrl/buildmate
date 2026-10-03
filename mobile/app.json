@@ -8,14 +8,14 @@
     "platforms": ["ios", "android"],
     "scheme": "buildmate",
     "android": {
-      "package": "com.kajalt.buildmate",
+      "package": "com.buildmate",
       "adaptiveIcon": {
         "backgroundColor": "#064F8B",
         "foregroundImage": "./assets/adaptive-icon.png"
       }
     },
     "ios": {
-      "bundleIdentifier": "com.kajalt.buildmate",
+      "bundleIdentifier": "com.buildmate",
       "supportsTablet": true
     },
     "extra": {
