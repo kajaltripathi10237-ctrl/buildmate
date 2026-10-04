@@ -1,0 +1,4 @@
+$kind: collection
+description: Live BuildMate backend collection for Render.
+variables:
+  base_url: https://buildmate-backend-vsfa.onrender.com

@@ -1,0 +1,15 @@
+$kind: http-request
+name: POST /api/support-tickets
+url: "{{base_url}}/api/support-tickets"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "userId": "{{userId}}",
+      "subject": "Delivery delay",
+      "description": "The scheduled material delivery is delayed by 2 days. Please review the timeline."
+    }
+order: 15000

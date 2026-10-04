@@ -1,0 +1,14 @@
+$kind: http-request
+name: POST /api/auth/login
+url: "{{base_url}}/api/auth/login"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "email": "admin@buildmate.com",
+      "password": "Password123!"
+    }
+order: 1000

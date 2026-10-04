@@ -1,0 +1,13 @@
+$kind: http-request
+name: POST /api/attendance/checkout
+url: "{{base_url}}/api/attendance/checkout"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "userId": "{{userId}}"
+    }
+order: 2000

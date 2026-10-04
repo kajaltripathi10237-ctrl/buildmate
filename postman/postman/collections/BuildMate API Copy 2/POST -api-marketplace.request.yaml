@@ -1,0 +1,19 @@
+$kind: http-request
+name: POST /api/marketplace
+url: "{{base_url}}/api/marketplace"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "vendorId": "{{userId}}",
+      "title": "Cement Mix 50kg",
+      "category": "BUILDING_MATERIALS",
+      "price": 45,
+      "stock": 18,
+      "description": "High-quality cement mix suitable for standard construction work.",
+      "type": "MATERIAL"
+    }
+order: 9000

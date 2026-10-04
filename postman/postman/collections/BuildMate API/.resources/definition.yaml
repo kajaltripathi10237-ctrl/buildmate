@@ -1,0 +1,7 @@
+$kind: collection
+description: Real collection for the BuildMate backend running on Render.
+variables:
+  base_url: https://buildmate-backend-vsfa.onrender.com
+  token: ""
+  refreshToken: ""
+  userId: ""

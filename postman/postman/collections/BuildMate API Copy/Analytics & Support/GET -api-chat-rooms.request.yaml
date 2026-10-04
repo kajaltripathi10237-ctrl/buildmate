@@ -1,0 +1,5 @@
+$kind: http-request
+name: GET /api/chat/rooms
+url: "{{base_url}}/api/chat/rooms"
+method: GET
+order: 2000

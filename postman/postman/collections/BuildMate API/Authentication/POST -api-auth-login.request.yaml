@@ -1,0 +1,23 @@
+$kind: http-request
+name: POST /api/auth/login
+url: "{{base_url}}/api/auth/login"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "email": "admin@buildmate.com",
+      "password": "Password123!"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      const json = pm.response.json();
+      if (json.token) pm.collectionVariables.set('token', json.token);
+      if (json.refreshToken) pm.collectionVariables.set('refreshToken', json.refreshToken);
+      if (json.user && json.user.id) pm.collectionVariables.set('userId', json.user.id);
+      pm.test('Status is 200', function () { pm.response.to.have.status(200); });
+    language: text/javascript
+order: 1000

@@ -1,0 +1,17 @@
+# Use this workspace to collaborate
+workspace:
+  id: 8dc79c15-1558-43d3-808b-8ba8e4a2ee02
+
+# Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
+
+cloudResources:
+  collections:
+    ../postman/collections/BuildMate API: 0333031b-b282-473c-b150-0ced195dc817
+    ../postman/collections/BuildMate API Copy: d20f61ac-94c7-428b-8648-b35f40df24d8
+    ../postman/collections/BuildMate API Copy 2: 1c4300c7-85e8-4afb-ab4c-2385ec57ff93
+
+# All resources in the `postman/` folder are automatically registered in Local View.
+# Point to additional files outside the `postman/` folder to register them individually. Example:
+#localResources:
+#  collections:
+#    - ../tests/E2E Test Collection/

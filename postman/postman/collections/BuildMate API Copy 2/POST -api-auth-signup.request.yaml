@@ -1,0 +1,17 @@
+$kind: http-request
+name: POST /api/auth/signup
+url: "{{base_url}}/api/auth/signup"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "name": "New Contractor",
+      "email": "contractor@example.com",
+      "phone": "+1-555-0101",
+      "password": "StrongPass123!",
+      "role": "CONTRACTOR"
+    }
+order: 3000

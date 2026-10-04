@@ -1,0 +1,5 @@
+$kind: http-request
+name: GET /api/support-tickets
+url: "{{base_url}}/api/support-tickets"
+method: GET
+order: 14000

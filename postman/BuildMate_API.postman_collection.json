@@ -1,0 +1,214 @@
+{
+  "info": {
+    "_postman_id": "buildmate-api-collection-2026-separate",
+    "name": "BuildMate API",
+    "description": "Separate endpoint requests for the live BuildMate backend.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "https://buildmate-backend-vsfa.onrender.com", "type": "string" },
+    { "key": "token", "value": "", "type": "string" },
+    { "key": "refreshToken", "value": "", "type": "string" },
+    { "key": "userId", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "GET /health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/health"
+      },
+      "response": []
+    },
+    {
+      "name": "POST /api/auth/login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const json = pm.response.json();",
+              "if (json.token) pm.collectionVariables.set('token', json.token);",
+              "if (json.refreshToken) pm.collectionVariables.set('refreshToken', json.refreshToken);",
+              "if (json.user && json.user.id) pm.collectionVariables.set('userId', json.user.id);",
+              "pm.test('Status is 200', function () { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@buildmate.com\",\n  \"password\": \"Password123!\"\n}"
+        },
+        "url": "{{base_url}}/api/auth/login"
+      },
+      "response": []
+    },
+    {
+      "name": "POST /api/auth/signup",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"New Contractor\",\n  \"email\": \"contractor@example.com\",\n  \"phone\": \"+1-555-0101\",\n  \"password\": \"StrongPass123!\",\n  \"role\": \"CONTRACTOR\"\n}"
+        },
+        "url": "{{base_url}}/api/auth/signup"
+      },
+      "response": []
+    },
+    {
+      "name": "POST /api/auth/refresh",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"refreshToken\": \"{{refreshToken}}\"\n}"
+        },
+        "url": "{{base_url}}/api/auth/refresh"
+      },
+      "response": []
+    },
+    {
+      "name": "GET /api/jobs",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/jobs"
+      },
+      "response": []
+    },
+    {
+      "name": "POST /api/jobs",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Electrical Panel Upgrade\",\n  \"description\": \"Install and test a complete electrical panel upgrade for a commercial site.\",\n  \"tradeType\": \"ELECTRICIAN\",\n  \"skillsRequired\": [\"Electrical wiring\", \"Safety checks\"],\n  \"wage\": 32,\n  \"budget\": 4200,\n  \"location\": \"Austin, TX\",\n  \"duration\": \"5 days\",\n  \"priority\": \"HIGH\",\n  \"postedById\": \"{{userId}}\"\n}"
+        },
+        "url": "{{base_url}}/api/jobs"
+      },
+      "response": []
+    },
+    {
+      "name": "GET /api/workers",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/workers"
+      },
+      "response": []
+    },
+    {
+      "name": "GET /api/marketplace",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/marketplace"
+      },
+      "response": []
+    },
+    {
+      "name": "POST /api/marketplace",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"vendorId\": \"{{userId}}\",\n  \"title\": \"Cement Mix 50kg\",\n  \"category\": \"BUILDING_MATERIALS\",\n  \"price\": 45,\n  \"stock\": 18,\n  \"description\": \"High-quality cement mix suitable for standard construction work.\",\n  \"type\": \"MATERIAL\"\n}"
+        },
+        "url": "{{base_url}}/api/marketplace"
+      },
+      "response": []
+    },
+    {
+      "name": "POST /api/attendance/checkin",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"{{userId}}\",\n  \"location\": \"Site A - GPS Verified\"\n}"
+        },
+        "url": "{{base_url}}/api/attendance/checkin"
+      },
+      "response": []
+    },
+    {
+      "name": "POST /api/attendance/checkout",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"{{userId}}\"\n}"
+        },
+        "url": "{{base_url}}/api/attendance/checkout"
+      },
+      "response": []
+    },
+    {
+      "name": "GET /api/analytics",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/analytics"
+      },
+      "response": []
+    },
+    {
+      "name": "GET /api/chat/rooms",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/chat/rooms"
+      },
+      "response": []
+    },
+    {
+      "name": "GET /api/support-tickets",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/support-tickets"
+      },
+      "response": []
+    },
+    {
+      "name": "POST /api/support-tickets",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"{{userId}}\",\n  \"subject\": \"Delivery delay\",\n  \"description\": \"The scheduled material delivery is delayed by 2 days. Please review the timeline.\"\n}"
+        },
+        "url": "{{base_url}}/api/support-tickets"
+      },
+      "response": []
+    }
+  ]
+}

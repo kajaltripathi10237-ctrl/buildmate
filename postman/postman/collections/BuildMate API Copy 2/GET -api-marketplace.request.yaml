@@ -1,0 +1,5 @@
+$kind: http-request
+name: GET /api/marketplace
+url: "{{base_url}}/api/marketplace"
+method: GET
+order: 8000

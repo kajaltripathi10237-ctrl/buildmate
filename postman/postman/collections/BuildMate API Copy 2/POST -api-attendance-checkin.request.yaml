@@ -1,0 +1,14 @@
+$kind: http-request
+name: POST /api/attendance/checkin
+url: "{{base_url}}/api/attendance/checkin"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "userId": "{{userId}}",
+      "location": "Site A - GPS Verified"
+    }
+order: 10000

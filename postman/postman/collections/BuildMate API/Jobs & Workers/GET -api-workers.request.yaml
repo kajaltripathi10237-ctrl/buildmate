@@ -1,0 +1,5 @@
+$kind: http-request
+name: GET /api/workers
+url: "{{base_url}}/api/workers"
+method: GET
+order: 3000
